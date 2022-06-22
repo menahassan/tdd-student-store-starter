@@ -1,12 +1,14 @@
 .product-grid {
     padding-left: 10px;
-    width: 100%;
     margin: 40px 0;
+    height:fit-content;
+    overflow: visible;
 }
 
 .content {
     display: flex;
     flex-direction: column;
+    height:fit-content;
 }
 
 h3 {

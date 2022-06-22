@@ -33,7 +33,7 @@ export default function App() {
   }
 
   function handleAddItemToCart(productId){
-    var inCart = false
+    /*var inCart = false
     var newCart = shoppingCart
     for(var i = 0; i < newCart.length; i++){
       if(productId == newCart[i].itemId){
@@ -47,7 +47,7 @@ export default function App() {
       newItem.quantity = 1
       newCart.push(newItem)
     }
-    setShoppingCart(newCart)
+    setShoppingCart(newCart)*/
     console.log("add item")
   }
 

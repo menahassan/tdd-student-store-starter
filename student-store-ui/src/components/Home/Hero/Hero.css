@@ -1,5 +1,5 @@
 .hero {
-    height: 350px;
+    height: 450px;
     background-color: #E7BBE3;
 }
 
@@ -8,13 +8,12 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    height: 200px;
+    height: 300px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .intro {
     flex: 1;
-    padding: 0 40px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -36,5 +35,22 @@ h1 {
 .hero-img {
     width: 200px;
     height: 200px;
-    margin: 0 105px 0 50px;
+    
 }
+
+.form{
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+#search-input{
+    margin-top: 30px;
+    max-width: 200px;
+    min-height: 30px;
+    max-height: 30px;
+    border: 1px solid #dcdedc;
+    border-radius: 5px;
+    font-size: 17px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
