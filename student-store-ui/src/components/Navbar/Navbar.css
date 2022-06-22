@@ -1,6 +1,4 @@
 .navbar {
-    width: 100%;
-    max-width: 100vw;
     background: #6b0373;
     color: white;
     height: 70px;
@@ -45,8 +43,14 @@
 
 li {
     display: list-item;
+    font-size: 20px;
     text-align: -webkit-match-parent;
     padding-right: 25px;
+}
+
+.social-logo{
+    filter: brightness(0) invert(1);
+    height: 55px;
 }
 
 a{

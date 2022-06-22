@@ -1,4 +1,5 @@
 .product-grid {
+    padding-left: 10px;
     width: 100%;
     margin: 40px 0;
 }
@@ -13,4 +14,10 @@ h3 {
     font-size: 24px;
     font-weight: 600;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.product-grid .content .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
