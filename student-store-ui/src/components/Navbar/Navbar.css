@@ -41,7 +41,7 @@
     max-width: 700px;
 }
 
-li {
+.navbar .content li {
     display: list-item;
     font-size: 20px;
     text-align: -webkit-match-parent;

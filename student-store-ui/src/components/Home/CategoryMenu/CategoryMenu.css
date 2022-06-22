@@ -1,0 +1,37 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.category-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex: 1;
+    list-style-type: none;
+    height: 40px;
+    font-weight: 500;
+    transition: all .2s ease;
+}
+
+.menu-item{
+    display: list-item;
+    text-align: center;
+}
+
+.active{
+    border-bottom: 3.5px solid #421820;
+}
+
+.btn{
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

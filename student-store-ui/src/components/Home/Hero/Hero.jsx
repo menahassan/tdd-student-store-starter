@@ -1,7 +1,13 @@
+import { useState, useEffect} from "react"
 import * as React from "react"
 import "./Hero.css"
 
-export default function Hero() {
+export default function Hero({handleSearch}) {
+    const [name, setName] = useState("");
+
+    useEffect(async () => {
+        handleSearch(name)
+      });
     return (
         <div className="hero">
                 <div className="content">
@@ -13,7 +19,10 @@ export default function Hero() {
                     </div>
                     <div className="form">
                         <form id="search-form">
-                        <input id="search-input" type="text" placeholder="Search" />
+                        <input id="search-input" type="text" placeholder="Search" 
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        />
                         </form>
                     </div>
             </div>

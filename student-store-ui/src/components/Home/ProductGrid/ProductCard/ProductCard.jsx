@@ -9,17 +9,38 @@ export default function ProductCard({product, productId, quantity, handleAddItem
     }
     return (
         <div className="product-card">
-            <Link className = "media" to="/">
-                <img class = "product-img" src={product.image} alt={`${product.name} image`} />
-            </Link>
-            <p className="product-name">{product.name}</p>
-            <p className="product-price">{`$${product.price.toFixed(2)}`}</p>
-            <p className="product-quantity">{`Quantity: ${quantity}`}</p>
-            <div>
-                <button className="add button" onClick={handleAddItemToCart}>Add</button>
-                <button className="remove button" onClick={handleRemoveItemToCart}>Remove</button>
-            </div>
-            {description}         
+            {
+                    showDescription
+                    ?
+                    <div>
+                        <Link className = "media" to={`/products/${productId}`}>
+                            <img class = "product-img" src={product.image} alt={`${product.name} image`} />
+                        </Link>
+                        <p className="product-name">{product.name}</p>
+                        <p className="product-price">{`$${product.price.toFixed(2)}`}</p>
+                        <p className="product-quantity">{`Quantity: ${quantity}`}</p>
+                        <div>
+                            <button className="add button" onClick={handleAddItemToCart}>Add</button>
+                            <button className="remove button" onClick={handleRemoveItemToCart}>Remove</button>
+                        </div>
+                        {description}
+                    </div>
+                    : 
+                    <div>
+                        <Link className = "media" to={`/products/${productId}`}>
+                            <img class = "product-img" src={product.image} alt={`${product.name} image`} />
+                        </Link>
+                        <p className="product-name">{product.name}</p>
+                        <p className="product-price">{`$${product.price.toFixed(2)}`}</p>
+                        <p className="product-quantity">{`Quantity: ${quantity}`}</p>
+                        <div>
+                            <button className="add button" onClick={handleAddItemToCart}>Add</button>
+                            <button className="remove button" onClick={handleRemoveItemToCart}>Remove</button>
+                        </div>
+                        {description}
+                    </div>
+            }
+         
         </div>
     )
   }

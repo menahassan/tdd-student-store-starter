@@ -4,7 +4,7 @@ import ProductCard from "./ProductCard/ProductCard"
 
 export default function ProductGrid({products, handleAddItemToCart, handleRemoveItemToCart}) {
     return (
-        <div className="product-grid">
+        <div className="product-grid" id="buy">
             <div className="content">
                 <h3>Products</h3>
                 <div className="grid">

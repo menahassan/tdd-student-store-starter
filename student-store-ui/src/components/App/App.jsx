@@ -5,10 +5,21 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Navbar from "../Navbar/Navbar"
 import Sidebar from "../Sidebar/Sidebar"
 import Home from "../Home/Home"
+import ProductDetail from "../ProductDetail/ProductDetail"
 import "./App.css"
 
 
 export default function App() {
+  const [categoryStatus, setCategoryStatus] = useState("All Categories")
+  function handleClickCategory(category){
+    setCategoryStatus(category)
+  }
+
+  const [searchStatus, setSearchStatus] = useState("")
+  function handleSearch(name){
+    setSearchStatus(name)
+  }
+
   const [products, setProductStatus] = useState([])
   const [isFetching, setIsFetchingStatus] = useState(false)
   const [error, setErrorStatus] = useState("")
@@ -31,6 +42,20 @@ export default function App() {
   function handleOnToggle(){
     setIsOpen(!isOpen)
   }
+
+  var currentItems = products
+  if(categoryStatus != "All Categories"){
+    currentItems = currentItems.filter(
+      item => (categoryStatus == item.category)
+    )
+  }
+
+  if(searchStatus != ""){
+    currentItems = currentItems.filter(
+      item => (item.name.toLowerCase().includes(searchStatus.toLowerCase()))
+    )
+  }
+
 
   function handleAddItemToCart(productId){
     /*var inCart = false
@@ -74,11 +99,20 @@ export default function App() {
           />
           {/* <Sidebar /> */}
           <Routes>
-            <Route exact path='/' element=
+            <Route path="/" element=
             {<Home 
-              products={products}
+              products={currentItems}
               handleAddItemtoCart = {handleAddItemToCart}
               handleRemoveItemToCart = {handleRemoveItemToCart}
+              handleClickCategory = {handleClickCategory}
+              category = {categoryStatus}
+              handleSearch = {handleSearch}
+            />}
+            />
+            <Route path="/products/:productId" element=
+            {<ProductDetail
+            handleAddItemToCart={handleAddItemToCart}
+            handleRemoveItemToCart = {handleRemoveItemToCart}
             />}
             />
         </Routes>

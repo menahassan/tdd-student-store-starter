@@ -3,12 +3,20 @@ import "./Home.css"
 import Hero from "./Hero/Hero"
 import About from "./About/About"
 import Contact from "./Contact/Contact"
+import Footer from "./Footer/Footer"
+import CategoryMenu from "./CategoryMenu/CategoryMenu"
 import ProductGrid from "./ProductGrid/ProductGrid"
 
-export default function Home({products, handleAddItemtoCart, handleRemoveItemToCart}) {
+export default function Home({products, handleAddItemtoCart, handleRemoveItemToCart, handleClickCategory, category, handleSearch}) {
   return (
     <div className="home">
-      <Hero></Hero>
+      <Hero
+      handleSearch={handleSearch}
+      ></Hero>
+      <CategoryMenu 
+      handleClickCategory = {handleClickCategory}
+      category = {category}
+      />
      <ProductGrid 
       products = {products}
       handleAddItemToCart = {handleAddItemtoCart}
@@ -16,6 +24,7 @@ export default function Home({products, handleAddItemtoCart, handleRemoveItemToC
       />
      <About />
      <Contact />
+     <Footer />
     </div> 
   )
 }
