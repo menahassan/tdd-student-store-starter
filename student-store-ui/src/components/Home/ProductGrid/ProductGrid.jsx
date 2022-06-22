@@ -13,6 +13,7 @@ export default function ProductGrid({products, handleAddItemToCart, handleRemove
                             <ProductCard 
                             product = {product}
                             productId = {product.id}
+                            quantity = {1}
                             handleAddItemToCart = {handleAddItemToCart}
                             handleRemoveItemToCart = {handleRemoveItemToCart}
                             showDescription = {false}

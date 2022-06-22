@@ -1,7 +1,7 @@
 import * as React from "react"
 import { useState, useEffect } from "react"
 import axios from "axios";
-import {BrowserRouter} from 'react-router-dom';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Navbar from "../Navbar/Navbar"
 import Sidebar from "../Sidebar/Sidebar"
 import Home from "../Home/Home"
@@ -33,7 +33,7 @@ export default function App() {
   }
 
   function handleAddItemToCart(productId){
-    /*var inCart = false
+    var inCart = false
     var newCart = shoppingCart
     for(var i = 0; i < newCart.length; i++){
       if(productId == newCart[i].itemId){
@@ -47,7 +47,7 @@ export default function App() {
       newItem.quantity = 1
       newCart.push(newItem)
     }
-    setShoppingCart(newCart)*/
+    setShoppingCart(newCart)
     console.log("add item")
   }
 
@@ -73,11 +73,16 @@ export default function App() {
           <Navbar 
           />
           {/* <Sidebar /> */}
-          <Home 
-          products={products}
-          handleAddItemtoCart = {handleAddItemToCart}
-          handleRemoveItemToCart = {handleRemoveItemToCart}
-          />
+          <Routes>
+            <Route exact path='/' element=
+            {<Home 
+              products={products}
+              handleAddItemtoCart = {handleAddItemToCart}
+              handleRemoveItemToCart = {handleRemoveItemToCart}
+            />}
+            />
+        </Routes>
+          
         </main>
       </BrowserRouter>
     </div>
