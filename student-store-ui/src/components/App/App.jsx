@@ -180,8 +180,7 @@ export default function App() {
             />}
             />
             <Route path="*" element=
-            {<NotFound
-            />}
+            {<NotFound />}
             />
         </Routes>
           

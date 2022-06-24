@@ -9,7 +9,7 @@ import ProductGrid from "./ProductGrid/ProductGrid"
 
 export default function Home({products, handleAddItemtoCart, handleRemoveItemToCart, handleClickCategory, category, handleSearch, shoppingCart}) {
   return (
-    <div className="home">
+    <div className="home" id="home">
       <Hero
       handleSearch={handleSearch}
       ></Hero>
