@@ -45,7 +45,7 @@ The following specifications were met on the Express backend and the React front
   - [x] Renders a `BrowserRouter` component that contains a `Routes` component with the following routes:
     - [x] `/` - Should render the `Home.jsx` component
     - [x] `/products/:productId` - should render the `ProductDetail` component
-    - [ ] `*` - anything else should render the `NotFound` component
+    - [x] `*` - anything else should render the `NotFound` component
   - [x] Renders the `Navbar` component on every route
   - [x] Renders the `Sidebar` component on every route
   - [x] Should create **at least** the following state variables:
