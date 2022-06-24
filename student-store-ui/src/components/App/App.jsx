@@ -7,6 +7,7 @@ import Sidebar from "../Sidebar/Sidebar"
 import Home from "../Home/Home"
 import ProductDetail from "../ProductDetail/ProductDetail"
 import "./App.css"
+import NotFound from "../NotFound/NotFound";
 
 
 export default function App() {
@@ -78,6 +79,8 @@ export default function App() {
       });
       setShoppingCart(newCart)
     }
+    setErrorStatus("")
+    setSuccessStatus("")
     console.log("add item")
   }
 
@@ -101,6 +104,8 @@ export default function App() {
       )
       setShoppingCart(filteredItems)
     }
+    setErrorStatus("")
+    setSuccessStatus("")
     console.log("remove item")
   }
 
@@ -111,19 +116,28 @@ export default function App() {
   }
 
   async function handleOnSubmitCheckoutForm(checkoutForm, shoppingCart){
-    await axios.post(
-      'https://codepath-store-api.herokuapp.com/store',{
-        user: checkoutForm,
-        shoppingCart: shoppingCart
+    if(shoppingCart.length != 0){
+      await axios.post(
+        'https://codepath-store-api.herokuapp.com/store',{
+          user: checkoutForm,
+          shoppingCart: shoppingCart
+        }
+      ).catch((err) => {
+        setErrorStatus(err.message)
+        setSuccessStatus("")
+      }).then( (value) =>{
+        //setSuccessStatus(value.data.purchase.receipt.lines.join(" "))
+        setSuccessStatus("Success!")
+        setErrorStatus("")
+        setShoppingCart([])
+        setCheckoutForm({"name": "", "email": ""})
       }
-    ).catch((err) => {
-      setErrorStatus(err.message)
-      setSuccessStatus("")
-    }).then( (value) =>{
-      setSuccessStatus(value.data.purchase.receipt.lines.join(" "))
-      setErrorStatus("")
+      )
     }
-    )
+    else{
+      setErrorStatus("Error: Cart is Empty. Please add items to check out.")
+      setSuccessStatus("")
+    }
   }
 
   return (
@@ -163,6 +177,10 @@ export default function App() {
             handleRemoveItemToCart = {handleRemoveItemToCart}
             shoppingCart = {shoppingCart}
             isFetching = {isFetching}
+            />}
+            />
+            <Route path="*" element=
+            {<NotFound
             />}
             />
         </Routes>

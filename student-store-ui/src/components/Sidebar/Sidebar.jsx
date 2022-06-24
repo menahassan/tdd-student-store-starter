@@ -30,7 +30,7 @@ export default function Sidebar({isOpen, shoppingCart, products, checkoutForm, h
           : null
         }
         {
-          isOpen && shoppingCart.length != 0
+          isOpen 
           ? <CheckoutForm 
           isOpen = {isOpen}
           shoppingCart = {shoppingCart}

@@ -30,6 +30,10 @@
     border-radius: 5px;
 }
 
-.checkout-message{
+.success{
+    font-size: 18px;
+}
+
+.error{
     font-size: 18px;
 }
