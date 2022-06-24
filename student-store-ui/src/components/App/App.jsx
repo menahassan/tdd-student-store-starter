@@ -22,12 +22,13 @@ export default function App() {
 
   const [products, setProductStatus] = useState([])
   const [isFetching, setIsFetchingStatus] = useState(false)
-  const [error, setErrorStatus] = useState("")
+  const [errorStatus, setErrorStatus] = useState("")
+  const [successStatus, setSuccessStatus] = useState("")
   const [isOpen, setIsOpen] = useState(false)
 
   //each shopping cart object should have itemId and quantity
   const [shoppingCart, setShoppingCart] = useState([])
-  const [checkoutForm, setCheckoutForm] = useState("")
+  const [checkoutForm, setCheckoutForm] = useState({"name": "", "email": ""})
 
   
   useEffect(async () => {
@@ -35,8 +36,10 @@ export default function App() {
       'https://codepath-store-api.herokuapp.com/store',
     ).catch(function (error){
        setErrorStatus(error)
+       setIsFetchingStatus(true)
     });
     setProductStatus(productsResult.data.products)
+    setIsFetchingStatus(false)
   });
 
   function handleOnToggle(){
@@ -56,48 +59,91 @@ export default function App() {
     )
   }
 
-
-  function handleAddItemToCart(productId){
-    /*var inCart = false
-    var newCart = shoppingCart
-    for(var i = 0; i < newCart.length; i++){
-      if(productId == newCart[i].itemId){
-        inCart = true
-        newCart[i].quantity += 1
-      }
+  const handleAddItemToCart = (productId) => {
+    const productExists = shoppingCart.find(
+      (product) => product.itemId === productId
+    )
+    if(productExists == undefined){
+      const newArray = [...shoppingCart, {itemId: productId, quantity: 1}]
+      console.log(1)
+      setShoppingCart(newArray)
     }
-    if(!inCart){
-      var newItem;
-      newItem.itemId = productId
-      newItem.quantity = 1
-      newCart.push(newItem)
+    else{
+      const newCart = shoppingCart.map((product) =>{
+        if(product.itemId == productId){
+          console.log(product.quantity + 1)
+          return{...product, quantity: product.quantity + 1}
+        }
+        return product;
+      });
+      setShoppingCart(newCart)
     }
-    setShoppingCart(newCart)*/
     console.log("add item")
   }
 
-  function handleRemoveItemToCart(productId){
-    /*var newCart;
-    for(var i = 0; i < shoppingCart.length; i++){
-      if(productId == shoppingCart[i].itemId){
-        shoppingCart[i].quantity -= 1
-        if(shoppingCart[i].quantity  != 0){
-          newCart.push(shoppingCart[i])
+  const handleRemoveItemToCart = (productId) => {
+    const productExists = shoppingCart.find(
+      (product) => product.itemId === productId
+    )
+    //if the product exists
+    if(productExists != undefined){
+      const newCart = shoppingCart.map((product) =>{
+        if(product.itemId == productId){
+          /*if(product.quantity == 1){
+            return{};
+          }*/
+          return{...product, quantity: product.quantity - 1}
         }
-      }
+        return product;
+      });
+      var filteredItems = newCart.filter(
+        item => (item.quantity != 0)
+      )
+      setShoppingCart(filteredItems)
     }
-    setShoppingCart(newCart)*/
     console.log("remove item")
+  }
+
+  const handleOnCheckoutFormChange = (name, value) => {
+    var newCheckout = checkoutForm
+    newCheckout[name] = value
+    setCheckoutForm(newCheckout)
+  }
+
+  async function handleOnSubmitCheckoutForm(checkoutForm, shoppingCart){
+    await axios.post(
+      'https://codepath-store-api.herokuapp.com/store',{
+        user: checkoutForm,
+        shoppingCart: shoppingCart
+      }
+    ).catch((err) => {
+      setErrorStatus(err.message)
+      setSuccessStatus("")
+    }).then( (value) =>{
+      setSuccessStatus(value.data.purchase.receipt.lines.join(" "))
+      setErrorStatus("")
+    }
+    )
   }
 
   return (
     <div className="app">
       <BrowserRouter>
         <main>
-          {/* YOUR CODE HERE! */}
           <Navbar 
           />
-          {/* <Sidebar /> */}
+          <Sidebar 
+          isOpen={isOpen}
+          shoppingCart = {shoppingCart}
+          products = {products}
+          checkoutForm = {checkoutForm}
+          handleOnCheckoutFormChange = {handleOnCheckoutFormChange}
+          handleOnSubmitCheckoutForm = {handleOnSubmitCheckoutForm}
+          handleOnToggle = {handleOnToggle}
+          errorStatus = {errorStatus}
+          successStatus = {successStatus}
+          isFetching = {isFetching}
+          />
           <Routes>
             <Route path="/" element=
             {<Home 
@@ -107,12 +153,16 @@ export default function App() {
               handleClickCategory = {handleClickCategory}
               category = {categoryStatus}
               handleSearch = {handleSearch}
+              shoppingCart = {shoppingCart}
+              isFetching = {isFetching}
             />}
             />
             <Route path="/products/:productId" element=
             {<ProductDetail
             handleAddItemToCart={handleAddItemToCart}
             handleRemoveItemToCart = {handleRemoveItemToCart}
+            shoppingCart = {shoppingCart}
+            isFetching = {isFetching}
             />}
             />
         </Routes>

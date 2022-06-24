@@ -26,8 +26,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 100px;
-    margin-right: 50px;
+    width: 80px;
+    margin-right: 60px;
 }
 
 .navbar .content .links {
@@ -45,11 +45,15 @@
     display: list-item;
     font-size: 20px;
     text-align: -webkit-match-parent;
-    padding-right: 25px;
+    padding-right: 15px;
 }
 
 .social-logo{
     filter: brightness(0) invert(1);
+    height: 55px;
+}
+
+.fb-logo{
     height: 55px;
 }
 

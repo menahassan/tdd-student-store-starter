@@ -15,7 +15,7 @@ export default function Navbar() {
             <img class="social-logo" src="https://www.stanthonyshs.org/wp-content/uploads/2018/01/instagram-logo-black-transparent.png" alt="instagram logo" />
           </a>
           <a href="">
-            <img class="social-logo" src="https://hershey-montessori.org/wp-content/uploads/2020/03/facebook-logo.png" alt="facebook logo" />
+            <img class="fb-logo" src="https://hershey-montessori.org/wp-content/uploads/2020/03/facebook-logo.png" alt="facebook logo" />
           </a>
         </div>
         <ul className="links">

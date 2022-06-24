@@ -7,7 +7,7 @@ import Footer from "./Footer/Footer"
 import CategoryMenu from "./CategoryMenu/CategoryMenu"
 import ProductGrid from "./ProductGrid/ProductGrid"
 
-export default function Home({products, handleAddItemtoCart, handleRemoveItemToCart, handleClickCategory, category, handleSearch}) {
+export default function Home({products, handleAddItemtoCart, handleRemoveItemToCart, handleClickCategory, category, handleSearch, shoppingCart}) {
   return (
     <div className="home">
       <Hero
@@ -21,6 +21,7 @@ export default function Home({products, handleAddItemtoCart, handleRemoveItemToC
       products = {products}
       handleAddItemToCart = {handleAddItemtoCart}
       handleRemoveItemToCart = {handleRemoveItemToCart}
+      shoppingCart = {shoppingCart}
       />
      <About />
      <Contact />

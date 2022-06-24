@@ -21,8 +21,8 @@ export default function ProductCard({product, productId, quantity, handleAddItem
                         <p className="product-price">{`$${product.price.toFixed(2)}`}</p>
                         <p className="product-quantity">{`Quantity: ${quantity}`}</p>
                         <div>
-                            <button className="add button" onClick={handleAddItemToCart}>Add</button>
-                            <button className="remove button" onClick={handleRemoveItemToCart}>Remove</button>
+                            <button className="add button" onClick={() => handleAddItemToCart(productId)}>Add</button>
+                            <button className="remove button" onClick={() => handleRemoveItemToCart(productId)}>Remove</button>
                         </div>
                         {description}
                     </div>
@@ -37,8 +37,8 @@ export default function ProductCard({product, productId, quantity, handleAddItem
                         <p className="product-price">{`$${product.price.toFixed(2)}`}</p>
                         <p className="product-quantity">{`Quantity: ${quantity}`}</p>
                         <div>
-                            <button className="add button" onClick={handleAddItemToCart}>Add</button>
-                            <button className="remove button" onClick={handleRemoveItemToCart}>Remove</button>
+                            <button className="add button" onClick={() => handleAddItemToCart(productId)}>Add</button>
+                            <button className="remove button" onClick={() => handleRemoveItemToCart(productId)}>Remove</button>
                         </div>
                         {description}
                     </div>

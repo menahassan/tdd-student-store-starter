@@ -5,7 +5,7 @@ import "./Hero.css"
 export default function Hero({handleSearch}) {
     const [name, setName] = useState("");
 
-    useEffect(async () => {
+    useEffect(() => {
         handleSearch(name)
       });
     return (
