@@ -29,7 +29,7 @@ Preview of Walkthrough (click link to see full video):
 
 - [x] User can click in the top navigation bar to scroll to the relevant section.
 - [x] User sees a "not found" display when searching for a nonexistent product.
-- [ ] Create an endpoint for fetching all orders in the database, and an endpoint for serving an individual order based on its id.
+- [x] Create an endpoint for fetching all orders in the database, and an endpoint for serving an individual order based on its id.
 - [ ] Build a page in the UI that displays the list of all past orders and lets the user click on any individual order to take them to a more detailed page of the transaction.
 - [ ] Allow users to use an input to filter orders by the email of the person who placed the order.
 
@@ -293,7 +293,7 @@ Yes. Lab 1 corresponded nearly directly to the project guidelines for the backen
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Since I completed all the core and stretch features, if I had more time I would have perhaps done some research on how to deploy a web app that has both a backend and frontend.
+If I had more time I would have perhaps done some research on how to deploy a web app that has both a backend and frontend.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
