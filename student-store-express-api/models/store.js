@@ -30,7 +30,11 @@ class Store {
     static createPurchase(shoppingCart, userOrder){
         const currentDate = new Date()
 
-        if(!shoppingCart || !userOrder){
+        if(!shoppingCart || !userOrder || shoppingCart.length == 0){
+            throw new BadRequestError()
+        }
+
+        if(!userOrder.hasOwnProperty('name') || !userOrder.hasOwnProperty('email')){
             throw new BadRequestError()
         }
 
