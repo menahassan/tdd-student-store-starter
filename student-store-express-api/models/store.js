@@ -51,7 +51,7 @@ class Store {
             uniqueElements.add(shoppingCart[i].itemId)
         }
 
-        const total = subtotal * 1.0875
+        const total = (subtotal * 1.0875).toFixed(2)
 
 
         var purchases = storage.get('purchases').value()

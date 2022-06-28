@@ -146,5 +146,27 @@
     }
   ],
   "purchases": [
+    {
+      "id": 0,
+      "name": "Mena",
+      "email": "abc@gmail.com",
+      "order": [
+        {
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "itemId": 2,
+          "quantity": 3
+        }
+      ],
+      "total": "5.97",
+      "createdAt": "Tue Jun 28 2022 13:49:26 GMT-0700 (Pacific Daylight Time)",
+      "receipt": [
+        "Showing receipt for Mena available at abc@gmail.com",
+        "\n            1 total Rice Krispies purchased at a cost of $0.99} for a total cost of 0.99}\n            ",
+        "\n            3 total Flamin Hot Cheetos purchased at a cost of $1.50} for a total cost of 4.50}\n            "
+      ]
+    }
   ]
 }
