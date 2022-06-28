@@ -34,14 +34,15 @@ export default function App() {
   
   useEffect(async () => {
     const productsResult = await axios(
-      'https://codepath-store-api.herokuapp.com/store',
+      'http://localhost:3001/store',
     ).catch(function (error){
        setErrorStatus(error)
        setIsFetchingStatus(true)
     });
+    console.log(productsResult)
     setProductStatus(productsResult.data.products)
     setIsFetchingStatus(false)
-  });
+  }, []);
 
   function handleOnToggle(){
     setIsOpen(!isOpen)

@@ -3,6 +3,9 @@ const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const store = require('./routes/store.js')
 const app = express()
+var cors = require('cors')
+
+app.use(cors())
 
 app.use(bodyParser.json())
 
